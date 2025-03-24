@@ -56,7 +56,7 @@ def load_pretrained_model(
     else:
         kwargs["torch_dtype"] = torch.bfloat16
 
-    if "llava" in model_name.lower():
+    if "viscot" in model_name.lower() or "llava" in model_name.lower():
         # Load LLaVA model
 
         if "lora" in model_name.lower() and model_base is not None:
@@ -73,7 +73,7 @@ def load_pretrained_model(
 
     image_processor = None
 
-    if "llava" in model_name.lower():
+    if "viscot" in model_name.lower() or "llava" in model_name.lower():
         mm_use_im_start_end = getattr(model.config, "mm_use_im_start_end", False)
         mm_use_im_patch_token = getattr(model.config, "mm_use_im_patch_token", True)
         if mm_use_im_patch_token:
